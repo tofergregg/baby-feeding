@@ -11,7 +11,7 @@ There are a lot of moving parts -- here is the list of services and items you ne
 
 I use a Raspberry Pi, which must be located on the same network as my Google Home. Here is the setup:
 
-1. Put the following files into an accessible `cgi-bin` directory. The python and `.sh` files should have executable permissions:
+1. Put the following files into an accessible `cgi-bin` directory on your web server on the Raspberry Pi. The `.py` and `.sh` files should have executable permissions:
  - `feed-report.py`
  - `feeding-report.sh`
  - `log-feed.py`
