@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
 
 from datetime import datetime, timedelta
+import sys
 
 BABY_NAME_FILE = "babyname.txt"
 
 def main():
+    try:
+        if sys.argv[1] == '-g' or sys.argv[1] == '--google-voice':
+            google_voice = True
+        else:
+            google_voice = False
+    except IndexError:
+        google_voice = False
+
     with open(BABY_NAME_FILE) as f:
         BABY_NAME = f.readline()[:-1]
     DATABASE = BABY_NAME.lower() + "-feedings.txt"

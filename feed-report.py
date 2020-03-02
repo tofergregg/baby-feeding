@@ -21,7 +21,7 @@ def main():
             partial = True
         else:
             partial = False
-    except:
+    except IndexError:
         partial = False
 
     sentence = ""
