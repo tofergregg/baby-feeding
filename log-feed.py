@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import cgitb
+cgitb.enable()
 from datetime import datetime, timedelta
 
 print("Content-Type: text/plain\n")
