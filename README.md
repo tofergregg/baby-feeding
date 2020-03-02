@@ -30,7 +30,7 @@ I use a Raspberry Pi, which must be located on the same network as my Google Hom
 First service:
 
  1. Click on the account image on the top right hand side of the IFTTT home page and choose "Create"
- 2. Click the "+" button and search for "Google Assistant". Choose "Say a simple phrase".
+ 2. Click the "+" button and search for "Google Assistant". Choose *Say a simple phrase*.
  3. Fill in the following details:
   - What do you want to say: *I just fed Celeste*
   - What's another way to say it (optional): *I am feeding Celeste*
