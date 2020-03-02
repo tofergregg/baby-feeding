@@ -1,1 +1,60 @@
-../index.html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Celeste Feeding</title>
+        <style>
+        html * {
+            color: #000;
+            font-family: Arial;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        </style>
+    </head>
+    <body onload="last_ten()">
+        <h1>Celeste Feedings</h1>
+
+        Celeste was last fed <span id="last-feed"></span>
+        <p>Last ten feedings:</p>
+        <p><div id="last-ten-feedings"></div></p>
+        <input type="submit" value="Report Feeding" onclick="report_feeding()">
+
+        <script>
+            function last_ten() {
+                const last_ten_div = document.getElementById("last-ten-feedings");
+                const last_feed_span = document.getElementById("last-feed");
+                let last_ten_feeds = fetch("cgi-bin/last_ten_feedings.py",{method:"GET"})
+                    .then(data=>{return data.json()})
+                    .then(res=>{
+                        console.log(res);
+                        last_feed_span.innerHTML = res[res.length - 1];
+                        feed_table = create_feed_table(res);
+                        last_ten_div.innerHTML = feed_table; 
+                    })
+                    .catch(error=>console.log(error))
+            }
+
+            function create_feed_table(feed_list) {
+                table = "<table>\n";
+                for (let i = 0; i < feed_list.length; i++) {
+                    next_feed = feed_list[i];
+                    table += "<tr><td>" + (feed_list.length - i) + "</td>";
+                    table += "<td>" + next_feed + "</td></tr>\n";
+                }
+                table += "</table>\n";
+                return table;
+            }
+            
+            function report_feeding() {
+                let last_ten_feeds = fetch("cgi-bin/log-feed.py",{method:"PUT"})
+                    .then(data=>{return data.text()})
+                    .then(text=>{
+                        console.log(text);
+                        last_ten();
+                    })
+                    .catch(error=>console.log(error))
+            }
+        </script>
+    </body>
+</html>
