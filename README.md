@@ -35,9 +35,9 @@ First service:
   - What do you want to say: *I just fed Celeste*
   - What's another way to say it (optional): *I am feeding Celeste*
   - What do you want the Assistant to say in response? *I've recorded the feeding.*
- 4. Click "Create Trigger"
+ 4. Click *Create Trigger*
  5. Click the "+" after "Then"
- 6. Search for "webhooks" and select it.
+ 6. Search for *webhooks* and select it.
  7. Click on *Make a web request*
  8. Fill in the following details:
   - URL: *http:62.45.183.76:1234/cgi-bin/log-feed.py* (note: this will depend on your own IP address and the port you forwarded. If you need to determine your IP address, you can use a site such as [http://whatsmyip.org](http://whatsmyip.org).
