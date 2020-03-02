@@ -1,5 +1,7 @@
 # IFTTT Google Assistant and Web Hooks integration for baby feeding
 
+I have a new baby. The baby eats *a lot* (every few hours), but on a schedule that isn't exact. My wife and I were constantly saying *When did we last feed the baby?* to each other, and I figured I could get my Google Home to record and report that information to us. Google does not make this particularly easy, though it is doable, as described below.
+
 This set of scripts is used to log and report on feeding times for a baby using your Google Home. Whenever you feed your baby (we will use the name *Celeste* below), you say *I just fed Celeste* and the time is logged. When you want to find out the last feeding time, you say *What time was Celeste's last feeding?* and your Google Home tells you.
 
 There are a lot of moving parts -- here is the list of services and items you need:
