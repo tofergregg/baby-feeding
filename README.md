@@ -1,5 +1,7 @@
 # IFTTT Google Assistant and Web Hooks integration for baby feeding
 
+This set of scripts is used to log and report on feeding times for a baby using your Google Home. Whenever you feed your baby (we will use the name *Celeste* below), you say *I just fed Celeste* and the time is logged. When you want to find out the last feeding time, you say *What time was Celeste's last feeding?* and your Google Home tells you.
+
 To setup on a Raspberry Pi located on the same network as your Google Home:
 
 1. Put the following files into an accessible `cgi-bin` directory. The python and `.sh` files should have executable permissions:
