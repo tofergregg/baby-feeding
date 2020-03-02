@@ -2,7 +2,7 @@
 
 To setup on a Raspberry Pi located on the same network as your Google Home:
 
-1. Put the following files into an accessible `cgi-bin` directory:
+1. Put the following files into an accessible `cgi-bin` directory. The python and `.sh` files should have executable permissions:
  - `feed-report.py`
  - `feeding-report.sh`
  - `log-feed.py`
@@ -16,7 +16,7 @@ To setup on a Raspberry Pi located on the same network as your Google Home:
 
 5. Set up two [IFTTT](https://ifttt.com) services, as follows:
 
-First account:
+First service:
 
  1. Click on the account image on the top right hand side of the IFTTT home page and choose "Create"
  2. Click the "+" button and search for "Google Assistant". Choose "Say a simple phrase".
@@ -30,9 +30,28 @@ First account:
  7. Click on *Make a web request*
  8. Fill in the following details:
   - URL: *http:62.45.183.76:1234/cgi-bin/log-feed.py* (note: this will depend on your own IP address and the port you forwarded. If you need to determine your IP address, you can use a site such as [http://whatsmyip.org](http://whatsmyip.org).
-  - Method: *GET*
+  - Method: *PUT*
   - Content-Type: *text/plain*
   - Body: (leave blank)
 
  9. Click *Create Action*
    
+Second service:
+
+ 1. Click on the account image on the top right hand side of the IFTTT home page and choose "Create"
+ 2. Click the "+" button and search for "Google Assistant". Choose "Say a simple phrase".
+ 3. Fill in the following details:
+  - What do you want to say: *What time was Celeste's last feeding?*
+  - What's another way to say it (optional): *What time did we last feed Celeste?*
+  - What do you want the Assistant to say in response? *Just a sec*
+ 4. Click "Create Trigger"
+ 5. Click the "+" after "Then"
+ 6. Search for "webhooks" and select it.
+ 7. Click on *Make a web request*
+ 8. Fill in the following details:
+  - URL: *http:62.45.183.76:1234/cgi-bin/feeding-report.sh* (note: this will depend on your own IP address and the port you forwarded. If you need to determine your IP address, you can use a site such as [http://whatsmyip.org](http://whatsmyip.org).
+  - Method: *GET*
+  - Content-Type: *text/plain*
+  - Body: (leave blank)
+
+ 9. Click *Create Action*
