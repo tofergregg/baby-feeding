@@ -8,3 +8,4 @@ To setup on a Raspberry Pi located on the same network as your Google Home:
  - `log-feed.py`
  - `speek-feeding.js`
 
+2. Make sure that you have `google-home-notifier` installed, and have set up the Google Cloud service with Google Translate.
