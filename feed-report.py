@@ -54,12 +54,7 @@ def main():
         sentence += " at "
 
     sentence += str(last_feeding[3]) + ":"
-   
-    if last_feeding[4] > 0:
-        # if last_feeding[4] < 10:
-        #     sentence += "O "
-        
-        sentence += str(last_feeding[4]).zfill(2)
+    sentence += str(last_feeding[4]).zfill(2)
     if am:
         sentence += " AM."
     else:
