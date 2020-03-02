@@ -23,7 +23,7 @@ I use a Raspberry Pi, which must be located on the same network as my Google Hom
 
 4. The `cgi-bin` directory should be set up so that the web server can write a file to the directory.
 
-5. You must forward the port on your router to allow the Raspberry Pi webserver to have a web-facing port.
+5. You must forward the port on your router to allow the Raspberry Pi webserver to have a web-facing port. For example, on my router I forwarded port `1234` to the IP address of my Raspberry Pi on its port `80`. In other words, when *Webhooks* makes a request to my global IP address on port 1234, it gets forwarded to the Apache web server on port 80 on my Raspberry Pi.
 
 6. Set up two [IFTTT](https://ifttt.com) services, as follows:
 
