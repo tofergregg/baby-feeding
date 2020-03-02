@@ -11,7 +11,7 @@ There are a lot of moving parts -- here is the list of services and items you ne
 4. The [google-home-notifier](https://github.com/noelportugal/google-home-notifier) service, which requires a working [Google Cloud service with Google Translate](https://cloud.google.com) setup.
 5. The *If This Then That* (*IFTTT*) service, which utilizes *Google Assistant* and *Webhooks*. 
 
-I use a Raspberry Pi, which must be located on the same network as my Google Home. Here is the setup:
+I use a Raspberry Pi, which must be located on the same network as my Google Home. The scripts will work with any Ubuntu distribution and likely with MacOS. Here is the setup:
 
 1. Put the following files into an accessible `cgi-bin` directory on your web server on the Raspberry Pi. The `.py` and `.sh` files should have executable permissions:
  - `feed-report.py`
@@ -21,7 +21,7 @@ I use a Raspberry Pi, which must be located on the same network as my Google Hom
 
 2. Change the name in `babyname.txt` to your baby's name.
 
-3. Make sure that you have [google-home-notifier](https://github.com/noelportugal/google-home-notifier) installed, and have set up the [Google Cloud service with Google Translate](https://cloud.google.com).
+3. Make sure that you have [google-home-notifier](https://github.com/noelportugal/google-home-notifier) installed (this requires [node](https://nodejs.org/en/download/), and have set up the [Google Cloud service with Google Translate](https://cloud.google.com).
 
 4. The `cgi-bin` directory should be set up so that the web server can write a file to the directory.
 
