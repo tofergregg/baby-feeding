@@ -1,17 +1,25 @@
 #!/usr/bin/env python3
 
-import cgitb
-cgitb.enable()
 from datetime import datetime, timedelta
 
-print("Content-Type: text/plain\n")
+BABY_NAME_FILE = "babyname.txt"
 
-# now = datetime.now() - timedelta(hours=1, minutes=0)
-now = datetime.now()
-date_time = now.strftime("%m,%d,%Y,%H,%M\n")
+def main():
+    with open(BABY_NAME_FILE) as f:
+        BABY_NAME = f.readline()[:-1]
+    DATABASE = BABY_NAME.lower() + "-feedings.txt"
 
-with open('celeste-feedings.txt', 'a') as f:
-    f.write(date_time)
+    print("Content-Type: text/plain\n")
 
-print("Last feeding: " + date_time)
+    # now = datetime.now() - timedelta(hours=1, minutes=0)
+    now = datetime.now()
+    date_time = now.strftime("%m,%d,%Y,%H,%M\n")
+
+    with open(DATABASE, 'a') as f:
+        f.write(date_time)
+
+    print("Last feeding: " + date_time)
+
+if __name__ == "__main__":
+    main()
 

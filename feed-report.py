@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
 
-DATABASE = "celeste-feedings.txt"
+BABY_NAME_FILE = "babyname.txt"
+
+
 import mmap
 from datetime import datetime
 
 MONTHS = ["January", "February", "March", "April", "May", "June",
           "July", "August", "September", "October", "November", "December"]
-
-#with open('celeste-feedings.txt', 'a') as f:
-#    f.write(date_time)
 
 def getlastline(fname):
     with open(fname) as source:
@@ -16,9 +15,11 @@ def getlastline(fname):
     return mapping[mapping.rfind(b'\n', 0, -1)+1:].decode('utf-8')
 
 def main():
+    with open(BABY_NAME_FILE) as f:
+        BABY_NAME = f.readline()[:-1]
+
+    DATABASE = BABY_NAME.lower() + "-feedings.txt"
     now = datetime.now()
-    # now_month = str(now.month).zfill(2)
-    # now_day = str(now.day).zfill(2)
 
     last_feeding = [int(x) for x in getlastline(DATABASE)[:-1].split(',')]
 
@@ -31,8 +32,7 @@ def main():
         if last_feeding[3] > 12:
             last_feeding[3] -= 12
 
-    # import pdb; pdb.set_trace()
-    sentence = "Celeste was last fed "
+    sentence = BABY_NAME + " was last fed "
     if [now.month, now.day] == last_feeding[:2]:
         sentence += "today"
     elif now.day == last_feeding[1] + 1:
