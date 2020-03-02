@@ -27,10 +27,12 @@ First account:
  4. Click "Create Trigger"
  5. Click the "+" after "Then"
  6. Search for "webhooks" and select it.
- 7. Click on "Make a web request"
+ 7. Click on *Make a web request*
  8. Fill in the following details:
   - URL: *http:62.45.183.76:1234/cgi-bin/log-feed.py* (note: this will depend on your own IP address and the port you forwarded. If you need to determine your IP address, you can use a site such as [http://whatsmyip.org](http://whatsmyip.org).
   - Method: *GET*
   - Content-Type: *text/plain*
   - Body: (leave blank)
+
+ 9. Click *Create Action*
    
