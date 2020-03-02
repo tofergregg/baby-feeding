@@ -2,7 +2,14 @@
 
 This set of scripts is used to log and report on feeding times for a baby using your Google Home. Whenever you feed your baby (we will use the name *Celeste* below), you say *I just fed Celeste* and the time is logged. When you want to find out the last feeding time, you say *What time was Celeste's last feeding?* and your Google Home tells you.
 
-To setup on a Raspberry Pi located on the same network as your Google Home:
+There are a lot of moving parts -- here is the list of services and items you need:
+1. A Google Home
+2. A router capable of forwarding a port to a local computer.
+3. A computer (e.g., a Raspberry Pi) connected to the same network as your Google Home, running a web server (e.g., Apache).
+4. The [google-home-notifier](https://github.com/noelportugal/google-home-notifier) service, which requires a working [Google Cloud service with Google Translate](https://cloud.google.com) setup.
+5. The *If This Then That* (*IFTTT*) service, which utilizes *Google Assistant* and *Webhooks*. 
+
+I use a Raspberry Pi and a located on the same network as my Google Home. Here is the setup:
 
 1. Put the following files into an accessible `cgi-bin` directory. The python and `.sh` files should have executable permissions:
  - `feed-report.py`
