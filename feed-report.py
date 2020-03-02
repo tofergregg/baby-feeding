@@ -4,6 +4,7 @@ BABY_NAME_FILE = "babyname.txt"
 
 
 import mmap
+import sys
 from datetime import datetime
 
 MONTHS = ["January", "February", "March", "April", "May", "June",
@@ -15,6 +16,15 @@ def getlastline(fname):
     return mapping[mapping.rfind(b'\n', 0, -1)+1:].decode('utf-8')
 
 def main():
+    try:
+        if sys.argv[1] == "-p" or sys.argv[1] == "--partial":
+            partial = True
+        else:
+            partial = False
+    except:
+        partial = False
+
+    sentence = ""
     with open(BABY_NAME_FILE) as f:
         BABY_NAME = f.readline()[:-1]
 
@@ -32,21 +42,24 @@ def main():
         if last_feeding[3] > 12:
             last_feeding[3] -= 12
 
-    sentence = BABY_NAME + " was last fed "
-    if [now.month, now.day] == last_feeding[:2]:
-        sentence += "today"
-    elif now.day == last_feeding[1] + 1:
-        sentence += "yesterday"
-    else:
-        sentence += "on " + MONTHS[now.month - 1] + " " + str(now.day)
+   
+    if not partial:
+        sentence += BABY_NAME + " was last fed "
+        if [now.month, now.day] == last_feeding[:2]:
+            sentence += "today"
+        elif now.day == last_feeding[1] + 1:
+            sentence += "yesterday"
+        else:
+            sentence += "on " + MONTHS[now.month - 1] + " " + str(now.day)
+        sentence += " at "
 
-    sentence += " at " + str(last_feeding[3]) + " "
+    sentence += str(last_feeding[3]) + ":"
    
     if last_feeding[4] > 0:
-        if last_feeding[4] < 10:
-            sentence += "O "
+        # if last_feeding[4] < 10:
+        #     sentence += "O "
         
-        sentence += str(last_feeding[4])
+        sentence += str(last_feeding[4]).zfill(2)
     if am:
         sentence += " AM."
     else:
