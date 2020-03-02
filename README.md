@@ -9,7 +9,7 @@ There are a lot of moving parts -- here is the list of services and items you ne
 4. The [google-home-notifier](https://github.com/noelportugal/google-home-notifier) service, which requires a working [Google Cloud service with Google Translate](https://cloud.google.com) setup.
 5. The *If This Then That* (*IFTTT*) service, which utilizes *Google Assistant* and *Webhooks*. 
 
-I use a Raspberry Pi and a located on the same network as my Google Home. Here is the setup:
+I use a Raspberry Pi, which must be located on the same network as my Google Home. Here is the setup:
 
 1. Put the following files into an accessible `cgi-bin` directory. The python and `.sh` files should have executable permissions:
  - `feed-report.py`
