@@ -265,7 +265,7 @@ function time_date_changed() {
     clearTimeout(time_date_changed.timer);
     time_date_changed.timer = 
         setTimeout(function(){
-            set_date(); // reset date
+            init(); // reset all
         }, 300000); // 5 minutes
 }
     </script>
