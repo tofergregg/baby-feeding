@@ -61,7 +61,7 @@ def main():
             elif now.day == last_feeding[1] + 1:
                 sentence += "yesterday"
             else:
-                sentence += "on " + MONTHS[now.month - 1] + " " + str(now.day)
+                sentence += "on " + MONTHS[last_feeding[0] - 1] + " " + str(last_feeding[1])
             sentence += " at "
 
         sentence += str(last_feeding[3]) + ":"
