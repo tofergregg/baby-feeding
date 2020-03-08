@@ -25,7 +25,7 @@
 <table>
     <th>Time</th><th>Date</th>
     <tr><td>
-<select id="hour">
+<select id="hour" onchange="time_date_changed()">
   <option value="--">--</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -41,7 +41,7 @@
   <option value="12">12</option>
 </select>
 :
-<select id="minute">
+<select id="minute" onchange="time_date_changed()">
   <option value="--">--</option>
   <option value="0">00</option>
   <option value="1">01</option>
@@ -105,14 +105,14 @@
   <option value="59">59</option>
 </select>
 &nbsp;
-<select id="meridian">
+<select id="meridian" onchange="time_date_changed()">
     <option value="--">--</option>
     <option value="AM">AM</option>
     <option value="PM">PM</option>
 </select>
         </td>
         <td>
-<select id="month">
+<select id="month" onchange="time_date_changed()">
     <option value="1">January</option>
     <option value="2">February</option>
     <option value="3">March</option>
@@ -127,7 +127,7 @@
     <option value="12">December</option>
 </select>
 /
-<select id="day">
+<select id="day" onchange="time_date_changed()">
   <option value="1">1</option>
   <option value="2">2</option>
   <option value="3">3</option>
@@ -195,6 +195,13 @@ Google Home Triggers:
         }
 
         function set_date() {
+            const hourSelector = document.getElementById("hour");
+            const minuteSelector = document.getElementById("minute");
+            const meridianSelector = document.getElementById("meridian");
+            hourSelector.value = "--";
+            minuteSelector.value = "--";
+            meridianSelector.value = "--";
+
             const monthSelector = document.getElementById("month");
             const daySelector = document.getElementById("day");
             let now = new Date();
@@ -253,6 +260,13 @@ function report_feeding() {
             last_ten();
         })
         .catch(error=>console.log(error))
+}
+function time_date_changed() {
+    clearTimeout(time_date_changed.timer);
+    time_date_changed.timer = 
+        setTimeout(function(){
+            set_date(); // reset date
+        }, 300000); // 5 minutes
 }
     </script>
     </body>
