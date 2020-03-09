@@ -54,6 +54,7 @@ def main():
     if meridian.lower() == "pm":
         if hour < 12:
             hour += 12
+    else:
         if hour == 12:
             hour = 0
 
